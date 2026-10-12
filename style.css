@@ -1,0 +1,777 @@
+```css
+/* ========================================
+   1. THEME VARIABLES
+======================================== */
+
+:root {
+    --brand-color: #166534;
+    --brand-dark: #14532D;
+    --accent-color: #16A34A;
+
+    --background-color: #F3F6F4;
+    --surface-color: #FFFFFF;
+    --sidebar-color: #FFFFFF;
+
+    --primary-text: #1F2937;
+    --secondary-text: #6B7280;
+
+    --border-color: #E5E7EB;
+
+    --food-color: #DCFCE7;
+    --transport-color: #DBEAFE;
+    --rent-color: #FEF3C7;
+    --entertainment-color: #F3E8FF;
+    --savings-color: #D1FAE5;
+    --utilities-color: #FFEDD5;
+
+    --card-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+}
+
+
+/* ========================================
+   2. GLOBAL STYLES
+======================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+    background-color: var(--background-color);
+    color: var(--primary-text);
+    line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+    font-family: "Poppins", sans-serif;
+    line-height: 1.3;
+}
+
+h1,
+h2,
+p {
+    margin-top: 0;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+
+/* Hide labels visually while keeping them accessible */
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+
+/* ========================================
+   3. OVERALL DASHBOARD GRID
+======================================== */
+
+.dashboard {
+    display: grid;
+
+    grid-template-columns: 250px minmax(0, 1fr);
+
+    min-height: 100vh;
+}
+
+
+/* ========================================
+   4. SIDEBAR
+======================================== */
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+
+    background-color: var(--sidebar-color);
+
+    padding: 28px 18px;
+
+    border-right: 1px solid var(--border-color);
+}
+
+
+/* Brand area */
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin-bottom: 40px;
+    padding: 0 8px;
+}
+
+.brand-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+
+    background-color: var(--brand-color);
+    color: white;
+
+    border-radius: 12px;
+
+    font-family: "Poppins", sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.brand h2 {
+    margin: 0;
+
+    color: var(--brand-color);
+
+    font-size: 21px;
+}
+
+
+/* Navigation */
+
+.navigation {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 12px 14px;
+
+    color: var(--secondary-text);
+
+    border-radius: 9px;
+
+    font-weight: 500;
+
+    transition:
+        background-color 200ms ease,
+        color 200ms ease;
+}
+
+.nav-item > span:first-child {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 24px;
+
+    font-size: 20px;
+}
+
+.nav-item:hover,
+.nav-item:focus-visible,
+.nav-item.active {
+    background-color: #DCFCE7;
+    color: var(--brand-color);
+}
+
+.nav-item:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+
+/* Sidebar footer */
+
+.sidebar-footer {
+    margin-top: auto;
+    padding: 24px 8px 0;
+
+    color: var(--secondary-text);
+    font-size: 13px;
+}
+
+
+/* ========================================
+   5. MAIN CONTENT
+======================================== */
+
+.main-content {
+    min-width: 0;
+    padding: 32px;
+}
+
+
+/* ========================================
+   6. DASHBOARD HEADER
+======================================== */
+
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+
+    margin-bottom: 36px;
+}
+
+.welcome h1 {
+    margin-bottom: 8px;
+
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.welcome p {
+    margin-bottom: 0;
+
+    color: var(--secondary-text);
+    font-size: 14px;
+}
+
+
+/* Header actions */
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+
+/* Search form */
+
+.search-form input {
+    width: 200px;
+    max-width: 100%;
+
+    padding: 11px 14px;
+
+    background-color: var(--surface-color);
+    color: var(--primary-text);
+
+    border: 1px solid var(--border-color);
+    border-radius: 9px;
+
+    outline: none;
+
+    transition: border-color 200ms ease;
+}
+
+.search-form input:focus {
+    border-color: var(--accent-color);
+}
+
+
+/* Profile */
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.profile-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+
+    background-color: var(--brand-color);
+    color: white;
+
+    border-radius: 50%;
+
+    font-weight: 700;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-info strong {
+    font-size: 14px;
+}
+
+.profile-info span {
+    color: var(--secondary-text);
+    font-size: 12px;
+}
+
+
+/* ========================================
+   7. SECTION HEADINGS
+======================================== */
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+
+    margin-bottom: 20px;
+}
+
+.section-heading h2,
+.savings-section h2 {
+    margin-bottom: 6px;
+
+    font-size: 20px;
+}
+
+.section-heading p {
+    margin-bottom: 0;
+
+    color: var(--secondary-text);
+    font-size: 14px;
+}
+
+.period-label {
+    padding: 8px 12px;
+
+    background-color: var(--surface-color);
+
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+
+    color: var(--secondary-text);
+    font-size: 13px;
+}
+
+
+/* ========================================
+   8. FINANCIAL SUMMARY GRID
+======================================== */
+
+.summary-section {
+    margin-bottom: 36px;
+}
+
+.summary-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+.summary-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+
+    padding: 22px;
+
+    background-color: var(--surface-color);
+
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+
+    box-shadow: var(--card-shadow);
+}
+
+.summary-label {
+    color: var(--secondary-text);
+    font-size: 14px;
+}
+
+.summary-amount {
+    color: var(--brand-color);
+
+    font-family: "Poppins", sans-serif;
+    font-size: 23px;
+    font-weight: 600;
+
+    overflow-wrap: anywhere;
+}
+
+.summary-note {
+    color: var(--secondary-text);
+    font-size: 12px;
+}
+
+
+/* ========================================
+   9. CATEGORY CARDS GRID
+======================================== */
+
+.categories-section {
+    margin-bottom: 36px;
+}
+
+.category-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+
+/* Individual category card */
+
+.category-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 24px;
+
+    min-width: 0;
+    min-height: 180px;
+
+    padding: 22px;
+
+    background-color: var(--surface-color);
+
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+
+    box-shadow: var(--card-shadow);
+
+    transition:
+        transform 200ms ease,
+        box-shadow 200ms ease,
+        border-color 200ms ease;
+}
+
+
+/* Card hover animation */
+
+.category-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow: 0 10px 22px rgba(15, 23, 42, 0.10);
+
+    border-color: var(--accent-color);
+}
+
+
+/* Card keyboard focus animation */
+
+.category-card:focus-visible {
+    transform: translateY(-4px);
+
+    box-shadow: 0 10px 22px rgba(15, 23, 42, 0.10);
+
+    outline: 3px solid var(--accent-color);
+    outline-offset: 3px;
+}
+
+
+/* Top part of the card */
+
+.card-top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.category-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    width: 46px;
+    height: 46px;
+
+    border-radius: 12px;
+
+    font-size: 23px;
+}
+
+.food-icon {
+    background-color: var(--food-color);
+}
+
+.transport-icon {
+    background-color: var(--transport-color);
+}
+
+.rent-icon {
+    background-color: var(--rent-color);
+}
+
+.entertainment-icon {
+    background-color: var(--entertainment-color);
+}
+
+.savings-icon {
+    background-color: var(--savings-color);
+}
+
+.utilities-icon {
+    background-color: var(--utilities-color);
+}
+
+.card-label {
+    font-size: 15px;
+    font-weight: 500;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* Bottom part of the card */
+
+.card-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.card-bottom strong {
+    font-family: "Poppins", sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+
+    overflow-wrap: anywhere;
+}
+
+.card-bottom span {
+    color: var(--secondary-text);
+    font-size: 12px;
+}
+
+
+/* ========================================
+   10. SAVINGS SECTION
+======================================== */
+
+.savings-section {
+    padding: 24px;
+
+    background-color: var(--surface-color);
+
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+
+    box-shadow: var(--card-shadow);
+
+    margin-bottom: 32px;
+}
+
+.savings-section > p {
+    color: var(--secondary-text);
+    font-size: 14px;
+}
+
+.progress-track {
+    width: 100%;
+    height: 12px;
+
+    overflow: hidden;
+
+    background-color: #E5E7EB;
+
+    border-radius: 20px;
+}
+
+.progress-fill {
+    width: 60%;
+    height: 100%;
+
+    background-color: var(--accent-color);
+
+    border-radius: 20px;
+}
+
+.progress-text {
+    margin-top: 12px;
+    margin-bottom: 0;
+}
+
+
+/* ========================================
+   11. FOOTER
+======================================== */
+
+.dashboard-footer {
+    padding: 20px 0;
+
+    color: var(--secondary-text);
+    font-size: 13px;
+
+    text-align: center;
+}
+
+
+/* ========================================
+   12. RESPONSIVE LAYOUT
+======================================== */
+
+@media (max-width: 767px) {
+
+    /* Single-column overall layout */
+
+    .dashboard {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    /* Sidebar moves above the main content */
+
+    .sidebar {
+        padding: 18px;
+
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .brand {
+        margin-bottom: 18px;
+    }
+
+    /* Navigation becomes a horizontal scrolling row */
+
+    .navigation {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    .nav-item {
+        padding: 10px;
+        font-size: 13px;
+    }
+
+    .sidebar-footer {
+        display: none;
+    }
+
+    /* Main content spacing */
+
+    .main-content {
+        padding: 20px;
+    }
+
+    /* Header items stack vertically */
+
+    .topbar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+    }
+
+    .header-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+    }
+
+    .search-form input {
+        width: 100%;
+    }
+
+    /* Summary and category cards become one column */
+
+    .summary-grid,
+    .category-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .summary-card {
+        padding: 20px;
+    }
+
+    .category-card {
+        min-height: 150px;
+    }
+
+    .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+
+/* ========================================
+   13. OPTIONAL DARK THEME
+======================================== */
+
+@media (prefers-color-scheme: dark) {
+
+    :root {
+        --brand-color: #4ADE80;
+        --brand-dark: #22C55E;
+        --accent-color: #4ADE80;
+
+        --background-color: #111827;
+        --surface-color: #1F2937;
+        --sidebar-color: #172033;
+
+        --primary-text: #F9FAFB;
+        --secondary-text: #D1D5DB;
+
+        --border-color: #374151;
+
+        --food-color: #234532;
+        --transport-color: #1E3A5F;
+        --rent-color: #59451F;
+        --entertainment-color: #49315F;
+        --savings-color: #1D4A3A;
+        --utilities-color: #5A3923;
+
+        --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+    }
+
+    .nav-item:hover,
+    .nav-item:focus-visible,
+    .nav-item.active {
+        background-color: #263E32;
+        color: #BBF7D0;
+    }
+
+    .period-label {
+        background-color: var(--surface-color);
+        color: var(--secondary-text);
+    }
+
+    .progress-track {
+        background-color: #374151;
+    }
+}
+
+
+/* ========================================
+   14. REDUCE MOTION WHEN REQUESTED
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
+```
